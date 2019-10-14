@@ -1,10 +1,10 @@
 import inspect
 import logging
-import datetime as dt
-import math
-from sqlalchemy.sql.sqltypes import TIMESTAMP,VARCHAR
-import numpy as np
-import pandas as pd
+# import datetime as dt
+# import math
+# from sqlalchemy.sql.sqltypes import TIMESTAMP,VARCHAR
+# import numpy as np
+# import pandas as pd
 
 from iotfunctions.base import BaseTransformer
 from iotfunctions import ui
@@ -26,6 +26,7 @@ class MultiplyByFactor(BaseTransformer):
         super().__init__()
     def execute(self, df):
         df = df.copy()
+
         for i,input_item in enumerate(self.input_items):
             df[self.output_items[i]] = df[input_item] * self.factor
         return df
