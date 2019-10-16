@@ -13,7 +13,7 @@ with open('credentials_as.json', encoding='utf-8') as F:
 db_schema = None
 db = Database(credentials=credentials)
 
-from custom.multplybyfactor import MultiplyByFactor
+from custom.multiplybyfactor import MultiplyByFactor
 fn = MultiplyByFactor(
     input_items = ['speed', 'travel_time'],
     factor = '2',

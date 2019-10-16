@@ -7,6 +7,6 @@ with open('credentials_as.json', encoding='utf-8') as F:
 db_schema = None
 db = Database(credentials=credentials)
 
-from custom.multiply_by_factor import MultiplyByFactor
+from custom.multiplybyfactor import MultiplyByFactor
 
-db.register_functions([MultiplyByFunction])
+db.register_functions([MultiplyByFactor])
