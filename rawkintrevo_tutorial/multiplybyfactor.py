@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 PACKAGE_URL = 'git+https://github.com/<repo>/functions@'
 
-class RawkintrevosMultiplyByFactor(BaseTransformer):
+class RawkintrevosMultiplyByFactorRedux(BaseTransformer):
 
     def __init__(self, input_items, factor, output_items):
 

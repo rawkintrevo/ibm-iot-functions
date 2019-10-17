@@ -7,6 +7,6 @@ with open('credentials_as.json', encoding='utf-8') as F:
 db_schema = None
 db = Database(credentials=credentials)
 
-from rawkintrevo_tutorial.multiplybyfactor import RawkintrevosMultiplyByFactor
+from rawkintrevo_tutorial.multiplybyfactor import RawkintrevosMultiplyByFactorRedux
 
-db.register_functions([RawkintrevosMultiplyByFactor])
+db.register_functions([RawkintrevosMultiplyByFactorRedux])
