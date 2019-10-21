@@ -14,9 +14,9 @@ logger = logging.getLogger(__name__)
 # Specify the URL to your package here.
 # This URL must be accessible via pip install
 
-PACKAGE_URL = 'git+https://github.com/rawkintrevo/ibm-iot-functions@'
+PACKAGE_URL = 'git+https://github.com/rawkintrevo/iot-functions-tutorial@'
 
-class RawkintrevosMultiplyByFactorRedux2(BaseTransformer):
+class RawkintrevosMultiplyByFactorRedux3(BaseTransformer):
 
     def __init__(self, input_items, factor, output_items):
 
