@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='rawkintrevo_tutorial',
+    name='rawkintrevo_tutorial2',
     version='0.0.1',
     packages=find_packages(),
     install_requires=['dill'

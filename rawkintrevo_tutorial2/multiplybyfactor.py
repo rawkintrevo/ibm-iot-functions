@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 
 PACKAGE_URL = 'git+https://github.com/rawkintrevo/iot-functions-tutorial@'
 
-class RawkintrevosMultiplyByFactorRedux3(BaseTransformer):
+class RawkintrevosMultiplyByFactorRedux4(BaseTransformer):
 
     def __init__(self, input_items, factor, output_items):
 
