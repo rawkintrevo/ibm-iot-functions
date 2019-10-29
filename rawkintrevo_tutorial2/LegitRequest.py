@@ -16,12 +16,12 @@ PACKAGE_URL = 'git+git://github.com/rawkintrevo/iot-functions-tutorial@'
 
 class ExternalModel(BaseTransformer):
 
-    def __init__(self, input_items, endpoint, method, output_items):
+    def __init__(self, input_items, endpoint, output_items):
 
         self.input_items = input_items
         self.output_items = output_items
         self.endpoint = endpoint
-        self.method = method
+
         super().__init__()
 
 

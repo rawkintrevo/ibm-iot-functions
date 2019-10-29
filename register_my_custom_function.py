@@ -10,7 +10,7 @@ db = Database(credentials=credentials)
 from rawkintrevo_tutorial2.divbyfactor import RawkintrevosDivByFactor
 from rawkintrevo_tutorial2.LegitRequest import ExternalModel
 
-db.register_functions([RawkintrevosDivByFactor, ExternalModel])
+db.register_functions([ExternalModel])
 
 db.unregister_functions(["ExternalModel"])
 
