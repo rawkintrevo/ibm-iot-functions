@@ -16,11 +16,11 @@ PACKAGE_URL = 'git+git://github.com/rawkintrevo/iot-functions-tutorial@'
 
 class ExternalModel(BaseTransformer):
 
-    def __init__(self, input_items, endpoint_url, method, output_items):
+    def __init__(self, input_items, endpoint, method, output_items):
 
         self.input_items = input_items
         self.output_items = output_items
-        self.endpoint_url = endpoint_url
+        self.endpoint = endpoint
         self.method = method
         super().__init__()
 
@@ -29,7 +29,7 @@ class ExternalModel(BaseTransformer):
         df = df.copy()
         assert(df, pd.DataFrame())
         df_dict = df.to_dict()
-        r = get(self.endpoint_url, json= df_dict)
+        r = get(self.endpoint, json= df_dict)
 
         return pd.DataFrame(r.json())
 
@@ -45,7 +45,7 @@ class ExternalModel(BaseTransformer):
             is_output_datatype_derived = True)
         )
         inputs.append(ui.UISingle(
-            name = 'endpoint_url',
+            name = 'endpoint',
             datatype=str)
         )
         outputs = []
