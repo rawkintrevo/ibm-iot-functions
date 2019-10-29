@@ -11,16 +11,16 @@ logger = logging.getLogger(__name__)
 # Specify the URL to your package here.
 # This URL must be accessible via pip install
 
-PACKAGE_URL = 'git+https://github.com/rawkintrevo/iot-functions-tutorial@'
+PACKAGE_URL = 'git+git://github.com/rawkintrevo/iot-functions-tutorial@'
 
 
 class ExternalModel(BaseTransformer):
 
-    def __init__(self, input_items, endpoint, method, output_items):
+    def __init__(self, input_items, endpoint_url, method, output_items):
 
         self.input_items = input_items
         self.output_items = output_items
-        self.endpoint = endpoint
+        self.endpoint_url = endpoint_url
         self.method = method
         super().__init__()
 
@@ -29,7 +29,7 @@ class ExternalModel(BaseTransformer):
         df = df.copy()
         assert(df, pd.DataFrame())
         df_dict = df.to_dict()
-        r = get(self.endpoint, json= df_dict)
+        r = get(self.endpoint_url, json= df_dict)
 
         return pd.DataFrame(r.json())
 
@@ -45,7 +45,7 @@ class ExternalModel(BaseTransformer):
             is_output_datatype_derived = True)
         )
         inputs.append(ui.UISingle(
-            name = 'endpoint url',
+            name = 'endpoint_url',
             datatype=str)
         )
         outputs = []
