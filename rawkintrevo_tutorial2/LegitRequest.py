@@ -31,8 +31,9 @@ class ExternalModel(BaseTransformer):
         df_dict = df.to_dict()
         r = get(self.endpoint, data= df_dict)
         if r.status_code < 400:
-            output_dict = {k: v for k,v in r.json().items()}
-            return pd.DataFrame(output_dict)
+            for i,input_item in enumerate(self.input_items):
+                df[self.output_items[i]] = r.json()[input_item]
+            return df
         else:
             logging.warning("Endpoint %s status code: %i" % (self.endpoint, r.status_code))
 
