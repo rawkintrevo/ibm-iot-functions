@@ -30,8 +30,11 @@ class ExternalModel(BaseTransformer):
         assert(df, pd.DataFrame())
         df_dict = df.to_dict()
         r = get(self.endpoint, data= df_dict)
-
-        return pd.DataFrame(r.json())
+        if r.status_code < 400:
+            output_dict = {k: v for k,v in r.json().items()}
+            return pd.DataFrame(output_dict)
+        else:
+            logging.warning("Endpoint %s status code: %i" % (self.endpoint, r.status_code))
 
     @classmethod
     def build_ui(cls):
