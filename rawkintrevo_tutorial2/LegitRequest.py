@@ -29,7 +29,7 @@ class ExternalModel(BaseTransformer):
         df = df.copy()
         assert(df, pd.DataFrame())
         df_dict = df.to_dict()
-        r = get(self.endpoint, json= df_dict)
+        r = get(self.endpoint, data= df_dict)
 
         return pd.DataFrame(r.json())
 
