@@ -23,17 +23,13 @@ class ExternalModel(BaseTransformer):
         super().__init__()
 
 
-    def execute(self, df, start_ts=None, end_ts=None, entities=None):
+    def execute(self, df, start_ts=None, end_ts=None, entities=None) -> bool:
         df = df.copy()
         assert(df, pd.DataFrame())
         df_dict = df.to_dict()
         r = get(self.endpoint, data= df_dict)
-        if r.status_code < 400:
-            for i,input_item in enumerate(self.input_items):
-                df[self.output_items[i]] = r.json()[input_item]
-            return df
-        else:
-            logging.warning("Endpoint %s status code: %i" % (self.endpoint, r.status_code))
+        print(r.json())
+        return True
 
     @classmethod
     def build_ui(cls):
