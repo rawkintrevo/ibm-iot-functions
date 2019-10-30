@@ -24,9 +24,10 @@ class RawkintrevosMultiplyByFactorRedux4(BaseTransformer):
         self.output_items = output_items
         self.factor = float(factor)
         super().__init__()
+
+
     def execute(self, df):
         df = df.copy()
-
         for i,input_item in enumerate(self.input_items):
             df[self.output_items[i]] = df[input_item] * self.factor
         return df

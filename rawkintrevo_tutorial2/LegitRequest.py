@@ -17,15 +17,13 @@ PACKAGE_URL = 'git+git://github.com/rawkintrevo/iot-functions-tutorial@'
 class ExternalModel(BaseTransformer):
 
     def __init__(self, input_items, endpoint, output_items):
-
         self.input_items = input_items
         self.output_items = output_items
         self.endpoint = endpoint
-
         super().__init__()
 
 
-    def execute(self, df):
+    def execute(self, df, start_ts=None, end_ts=None, entities=None):
         df = df.copy()
         assert(df, pd.DataFrame())
         df_dict = df.to_dict()
