@@ -7,7 +7,7 @@ with open('credentials_as.json', encoding='utf-8') as F:
 db_schema = None
 db = Database(credentials=credentials)
 
-from rawkintrevo_tutorial2.divbyfactor import RawkintrevosDivByFactor
+# from rawkintrevo_tutorial2.divbyfactor import RawkintrevosDivByFactor
 from rawkintrevo_tutorial2.LegitRequest import ExternalModel
 
 db.unregister_functions(["ExternalModel"])
